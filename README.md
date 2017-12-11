@@ -1,6 +1,6 @@
 # Aaron Klump's Resume Addendum
 
-This code repository holds the app that I built to generate my resume, which I'm assuming you have recently reviewed.
+This code repository holds the app that I built to generate [my resume](https://aklump.github.io/resume/), which I'm assuming you have recently reviewed.
 
 I ask you to to take the next 60 seconds to click on the 5 links below, which will demonstrate and back the skills that I've listed out in my resume.
 
