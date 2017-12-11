@@ -54,7 +54,7 @@ try {
         Bash::exec([
             'test -e ',
             $fontsDir,
-            '&& rsync -a',
+            '&& rsync -a --delete',
             $fontsDir,
             "$to/fonts/",
         ]);
