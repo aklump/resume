@@ -12,7 +12,6 @@ use AKlump\LoftLib\Component\Storage\FilePath;
 
 define('ROOT', dirname(__FILE__));
 define('DEFAULT_THEME', 'aklump');
-define('DIST_DIR', ROOT . '/docs/');
 
 require_once ROOT . '/vendor/autoload.php';
 
@@ -26,10 +25,12 @@ $readDataFrom[] = $baseData;
 // w = website mode; the content will be displayed online, publicly
 // t = which theme to use other than DEFAULT_THEME
 // f = focus data, this is the name of a directory in the same directory as base.  If present these files will override the base data files.
+// o = output path, path to a directory where the output should be rendered relative to the root of the project
 //
-$opts = getopt('wf:t:');
+$opts = getopt('wf:t:o:');
 $media = array_key_exists('w', $opts) ? 'website' : 'print';
 $theme = $opts['t'] ?? DEFAULT_THEME;
+$outputDir = ROOT . '/' . ($opts['o'] ?? '/dist/default');
 
 if ($opts['f'] ?? null) {
     $readDataFrom[] = dirname($baseData) . '/' . trim($opts['f'], '/');
@@ -40,11 +41,11 @@ try {
 
     // Output the index.html
     $html = $builder->getHtml($media);
-    $obj = new FilePath(DIST_DIR . '/index.html');
+    $obj = new FilePath($outputDir . '/index.html');
     $obj->put($html)->save();
 
     // Copy the theme's css.
-    $buildDir = $obj = new FilePath(DIST_DIR);
+    $buildDir = $obj = new FilePath($outputDir);
     $buildDir->to('resume.css')->copy(ROOT . "/themes/$theme/resume.css");
 
     // Copy fonts if they exist.
