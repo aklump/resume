@@ -1,10 +1,14 @@
 /data
 /vendor
-/dist
 /themes/aklump/fonts/ibm-plex/*
 !/themes/aklump/fonts/ibm-plex/IBMPlexSerif-Regular.otf
 /themes/aklump/fonts/libre-baskerville/*
 !/themes/aklump/fonts/libre-baskerville/LibreBaskerville-Regular.otf
+
+/docs/fonts/ibm-plex/*
+!/docs/fonts/ibm-plex/IBMPlexSerif-Regular.otf
+/docs/fonts/libre-baskerville/*
+!/docs/fonts/libre-baskerville/LibreBaskerville-Regular.otf
 
 /lib/loft_php_lib/*
 !/lib/loft_php_lib/dist

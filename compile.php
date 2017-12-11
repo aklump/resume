@@ -12,7 +12,7 @@ use AKlump\LoftLib\Component\Storage\FilePath;
 
 define('ROOT', dirname(__FILE__));
 define('DEFAULT_THEME', 'aklump');
-define('DIST_DIR', ROOT . '/dist/');
+define('DIST_DIR', ROOT . '/docs/');
 
 require_once ROOT . '/vendor/autoload.php';
 
