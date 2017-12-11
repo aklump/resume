@@ -1,0 +1,92 @@
+.section {
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.section__title {
+  font-size: $font--larger;
+  margin-top: -10px;
+  margin-bottom: $gap__fixed--v;
+  color: $color--accent2;
+  text-align: right;
+  padding-right: inches-to-px(.75);
+  border-bottom: solid 1px;
+  span {
+    background-color: $color--bg;
+    color: $color--accent;
+    padding: 0 .25em;
+    transform: translateY(50%);
+    display: inline-block;
+    .media--print & {
+      color: $color--accent--print;
+      background-color: $color--bg--print;
+    }
+  }
+  .media--print & {
+    color: $color--accent2--print;
+  }
+}
+
+.section__list {
+  &--job {
+    @include no-list;
+    & ul,
+    & ol {
+      @include list-bullets;
+      padding-left: $indent;
+    }
+  }
+  &--school {
+    @include no-list;
+  }
+}
+
+.section--summary {
+  font-size: $font--larger;
+}
+
+.section--affiliations {
+  .section__list--text {
+    @include no-list;
+  }
+}
+
+.section--clients {
+  .section__list--text {
+    margin: 0 $indent;
+    column-count: 3;
+    @include list;
+
+  }
+}
+
+.section--shops {
+  .section__list--text {
+    margin: 0 $indent;
+    column-count: 3;
+    @include list;
+
+  }
+}
+
+.section--skills {
+  .section__list--text {
+    margin: 0 $indent;
+    column-count: 4;
+    @include list;
+
+  }
+}
+
+.section--jobs {
+  ul {
+    margin-top: $gap__fixed--v--short;
+  }
+}
+
+.section--education {
+  @media print {
+    page-break-before: always;
+  }
+}

@@ -1,0 +1,34 @@
+.contact {
+  text-align: center;
+}
+
+.contact__info {
+  .media--print & {
+    font-size: $font--larger;
+  }
+}
+
+.contact__name {
+  color: $color--accent;
+  .media--print & {
+    color: $color--accent--print;
+  }
+}
+
+.contact__address {
+  margin-right: $gap__fixed--h;
+}
+
+.contact__phone {
+  margin-right: $gap__fixed--h;
+}
+
+.contact__email {
+  margin-right: $gap__fixed--h;
+}
+
+.contact__links {
+  .media--print & {
+    color: $color--accent--print;
+  }
+}

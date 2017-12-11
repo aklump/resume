@@ -1,0 +1,45 @@
+//
+// Convert pixels to inches
+//
+// @param float $inches
+//
+// @return float The value in pixels.
+//
+@function inches-to-px($inches) {
+  @return ($inches * $inches_to_px_dpi) * 1px;
+}
+
+//
+//
+// Remove list style
+//
+@mixin no-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+//
+//
+// Style a no-bullets list.
+//
+@mixin list {
+  @include no-list;
+  li {
+    display: block;
+  }
+}
+
+//
+//
+// Style a bulletted list
+//
+@mixin list-bullets {
+  @include no-list;
+  li {
+    display: block;
+    &:before {
+      content: "\2301";
+      letter-spacing: .25em;
+    }
+  }
+}

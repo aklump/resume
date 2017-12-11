@@ -1,0 +1,25 @@
+{
+    "name": "aklump/resume",
+    "description": "Self-demonstrating resume for Aaron Klump, full stack web developer.",
+    "type": "project",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Aaron Klump",
+            "email": "sourcecode@intheloftstudios.com"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^3.4",
+        "aklump/data": "^0.0.28",
+        "twig/twig": "~2.0"
+    },
+    "autoload": {
+        "files": [
+            "lib/loft_php_lib/dist/vendor/autoload.php"
+        ],
+        "psr-4": {
+            "AKlump\\Resume\\": "src/AKlump/Resume/"
+        }
+    }
+}

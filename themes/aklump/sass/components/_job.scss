@@ -1,0 +1,10 @@
+.job {
+  margin-bottom: $gap__fixed--v;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.job__title {
+  font-size: $font--larger;
+}

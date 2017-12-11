@@ -1,0 +1,19 @@
+<header class="contact">
+  <h1 class="contact__name">{{ contact.name }}</h1>
+  <div class="contact__info">
+    <span class="contact__address">{{ contact.street_address }}, {{ contact.city }}
+      , {{ contact.state }} {{ contact.zip }}</span>
+    <span class="contact__phone">{{ contact.phone }}</span>
+    <span class="contact__email">{{ contact.email|enmail }}</span>
+  </div>
+  <div class="contact__links">
+    {% for link in contact.links %}
+      {{ link|enlink }}
+    {% endfor %}
+  </div>
+</header>
+<main>
+  {% for section in sections %}
+    {% include 'section.twig' with section only %}
+  {% endfor %}
+</main>

@@ -1,0 +1,11 @@
+<li class="job">
+  <div class="job__title"><strong>{{ title }}</strong>, {{ start }} to {{ stop|default('Current') }}</div>
+  <div class="job__employer">{{ employer }} &ndash; {{ city }}, {{ state }}</div>
+  {% if items %}
+    <ul>
+      {% for item in items %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>
