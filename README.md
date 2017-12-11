@@ -20,11 +20,11 @@ This code base demonstrates my understanding of the following:
 
 1. Download the package
 1. Run `composer update` from the root.
+1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point, e.g. `rsync -av install/data data/`
 
 
 ### First, enter your data
 
-1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point.
 1. You may delete all but _contact.yml_ and still generate a resume.
 1. Any file with _.yml_ added to _data_ will be treated as a resume section
 1. The order of sections is determined by the `sort` value in the yaml file; lower values come first.
