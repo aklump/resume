@@ -32,5 +32,5 @@ Compiling for the web uses different CSS and also handles links and email addres
 
 ## How to Custom Style Your Resume
 
-1. You can build a new theme by copying _themes/2017_ and altering any of the files.  To use your new theme pass the directory name as an argument `php compile.php -tmy_theme`, where your theme is located in _themes/my_theme_.
+1. You can build a new theme by copying _themes/aklump_ and altering any of the files.  To use your new theme pass the directory name as an argument `php compile.php -tmy_theme`, where your theme is located in _themes/my_theme_.
 
