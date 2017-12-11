@@ -16,6 +16,10 @@ This code base demonstrates my understanding of the following:
 
 ## How to Build Your Resume
 
+### Requirements
+
+1. PHP >= 7.0
+
 ### Installation
 
 1. Download the package
