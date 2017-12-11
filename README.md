@@ -6,7 +6,7 @@
 
 This code base demonstrates my understanding of the following:
 
-- Separation of data from presentation.
+- Separation of [data from presentation](tree/master/install/data/base).
 - Manipulation of data using PHP to make it API-ready.
 - Use of a (Twig) template engine to generate markup from the API-ready data.
 - Style markup using SMACSS and SCSS for both print and screen
