@@ -24,7 +24,7 @@ This code base demonstrates my understanding of the following:
 
 1. Download the package
 1. Run `composer update` from the root.
-1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point, e.g. `rsync -av install/data data/`
+1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point, e.g. `rsync -av install/data/ data/`
 
 
 ### First, enter your data

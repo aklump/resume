@@ -21,6 +21,7 @@
 !/lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Storage
 /lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Storage/*
 !/lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Storage/FilePath*
+!lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Storage/PersistentInterface.php
 !/lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Bash
 /lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Bash/*
 !/lib/loft_php_lib/dist/src/AKlump/LoftLib/Component/Bash/Color.php
