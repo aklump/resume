@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "symfony/yaml": "^3.4",
+        "symfony/yaml": "^4.0",
         "aklump/data": "^0.0.28",
         "twig/twig": "~2.0"
     },
@@ -19,7 +19,8 @@
             "lib/loft_php_lib/dist/vendor/autoload.php"
         ],
         "psr-4": {
-            "AKlump\\Resume\\": "src/AKlump/Resume/"
+            "AKlump\\Resume\\": "src/AKlump/Resume/",
+            "AKlump\\LoftLib\\": "lib/loft_php_lib/dist/AKlump/LoftLib/"
         }
     }
 }

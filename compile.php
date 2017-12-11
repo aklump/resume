@@ -7,6 +7,7 @@
 namespace AKlump\Resume;
 
 use AKlump\LoftLib\Component\Bash\Bash;
+use AKlump\LoftLib\Component\Bash\Color;
 use AKlump\LoftLib\Component\Storage\FilePath;
 
 define('ROOT', dirname(__FILE__));
@@ -58,6 +59,8 @@ try {
         ]);
     }
 } catch (\Exception $exception) {
-    die($exception->getMessage() . PHP_EOL);
+    print Color::wrap('red', $exception->getMessage()) . PHP_EOL;
+    exit(1);
 }
-echo "The resume is available at :" . $buildDir->getPath() . '/index.html' . PHP_EOL;
+print Color::wrap('green', "Your resume is available at :" . $buildDir->getPath() . '/index.html') . PHP_EOL;
+exit(0);
