@@ -1,6 +1,7 @@
+#!/usr/bin/env php
 <?php
 /**
- * @file Controller file for compiling a resume.s
+ * @file Controller file for compiling a resume.
  */
 
 namespace AKlump\Resume;
@@ -10,7 +11,7 @@ use AKlump\LoftLib\Component\Storage\FilePath;
 
 define('ROOT', dirname(__FILE__));
 define('DEFAULT_THEME', 'aklump');
-define('DIST_DIR', ROOT . '/' . DIST_DIR;
+define('DIST_DIR', ROOT . '/dist/');
 
 require_once ROOT . '/vendor/autoload.php';
 
@@ -18,14 +19,17 @@ $readDataFrom = [];
 $baseData = ROOT . "/data/base";
 $readDataFrom[] = $baseData;
 
-// Convert CLI options
-
+//
+// Convert CLI options:
+//
 // w = website mode; the content will be displayed online, publicly
+// t = which theme to use other than DEFAULT_THEME
+// f = focus data, this is the name of a directory in the same directory as base.  If present these files will override the base data files.
+//
 $opts = getopt('wf:t:');
 $media = array_key_exists('w', $opts) ? 'website' : 'print';
 $theme = $opts['t'] ?? DEFAULT_THEME;
 
-// f = focus data, this is the name of a directory in the same directory as base.
 if ($opts['f'] ?? null) {
     $readDataFrom[] = dirname($baseData) . '/' . trim($opts['f'], '/');
 }
@@ -56,3 +60,4 @@ try {
 } catch (\Exception $exception) {
     die($exception->getMessage() . PHP_EOL);
 }
+echo "The resume is available at :" . $buildDir->getPath() . '/index.html' . PHP_EOL;
