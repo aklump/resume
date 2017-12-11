@@ -1,0 +1,24 @@
+sort: 20
+title: Work History
+jobs:
+  -
+    title: Lead Developer
+    employer: Dibblepop Technologies
+    city: York
+    state: NE
+    start: 2012-07-01
+    items:
+      - Planned and implemented multiple complex project solutions.
+      - Directed and guided project teams.
+      - Upheld established standards policies and procedures.
+  -
+    employer: Midwest Tech Solutions
+    city: Lincoln
+    state: NE
+    start: 2012-07-01
+    items:
+      - Administered production and development environments.
+      - Performed risk and impact assessments on the existing system.
+      - Tested and developed functional requirements.
+      - Transformed business requirements to technical design after thorough analysis.
+      - Coordinated with marketing and business development teams.

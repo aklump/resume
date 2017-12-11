@@ -16,6 +16,12 @@ This code base demonstrates my understanding of the following:
 
 ## How to Build Your Resume
 
+### Installation
+
+1. Download the package
+1. Run `composer update` from the root.
+
+
 ### First, enter your data
 
 1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point.
