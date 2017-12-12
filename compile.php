@@ -63,5 +63,5 @@ try {
     print Color::wrap('red', $exception->getMessage()) . PHP_EOL;
     exit(1);
 }
-print Color::wrap('green', "Your resume is available at :" . $buildDir->getPath() . '/index.html') . PHP_EOL;
+print Color::wrap('green', "Your resume is available at: " . $buildDir->getPath() . '/index.html') . PHP_EOL;
 exit(0);
