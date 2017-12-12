@@ -1,12 +1,11 @@
 html {
-  font-size: 14px;
+  font-size: 16px;
   background-color: $color--desktop;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
   font-family: Copy, "Times New Roman", serif;
   &.media--print {
-    line-height: 1.8;
-    font-size: 11.25px;
+    font-size: 13px;
     background-color: $color--bg--print;
   }
 }
@@ -22,12 +21,10 @@ body {
   background-color: $color--bg;
   margin: $gap__fixed--v * 2 auto $gap__fixed--v * 3;
   padding: $gap__fixed--v--tall $gap__fixed--h--wide;
-  box-shadow: 5px 5px lighten($color--desktop, 6%);
   .media--print & {
     margin: 0 auto;
     background-color: $color--bg--print;
     color: $color--fg--print;
-    box-shadow: none;
     padding: 0;
   }
 }
@@ -45,15 +42,6 @@ a {
     color: $color--accent--print;
   }
   text-decoration: none;
-  &:hover {
-    background-color: $color--accent;
-    color: $color--fg;
-
-  }
-}
-
-span.link {
-  padding: 0 $gap__fixed--h--narrow;
 }
 
 ul, ol {

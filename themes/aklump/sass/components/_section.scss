@@ -6,11 +6,11 @@
 
 .section__title {
   font-size: $font--larger;
-  margin-top: -10px;
-  margin-bottom: $gap__fixed--v;
+  margin-top: $gap__fixed--v--short;
+  margin-bottom: $gap__fixed--v * 1.5;
   color: $color--accent2;
-  text-align: right;
-  padding-right: inches-to-px(.75);
+  text-align: left;
+  padding-left: $indent;
   border-bottom: solid 1px;
   span {
     background-color: $color--bg;
@@ -22,10 +22,17 @@
       color: $color--accent--print;
       background-color: $color--bg--print;
     }
+    &:first-child {
+      padding-left: 0;
+    }
   }
   .media--print & {
     color: $color--accent2--print;
   }
+}
+
+.section__copy {
+  padding: 0 $indent;
 }
 
 .section__list {
@@ -34,7 +41,6 @@
     & ul,
     & ol {
       @include list-bullets;
-      padding-left: $indent;
     }
   }
   &--school {
@@ -72,21 +78,17 @@
 
 .section--skills {
   .section__list--text {
-    margin: 0 $indent;
     column-count: 4;
     @include list;
 
   }
 }
-
 .section--jobs {
-  ul {
-    margin-top: $gap__fixed--v--short;
-  }
+  font-size: $font--larger;
 }
 
 .section--education {
   @media print {
-    page-break-before: always;
+    //page-break-before: always;
   }
 }

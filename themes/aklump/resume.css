@@ -396,14 +396,13 @@ template {
   display: none; }
 
 html {
-  font-size: 14px;
+  font-size: 16px;
   background-color: #222;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
   font-family: Copy, "Times New Roman", serif; }
   html.media--print {
-    line-height: 1.8;
-    font-size: 11.25px;
+    font-size: 13px;
     background-color: #fff; }
 
 p {
@@ -412,16 +411,14 @@ p {
 body {
   width: 90%;
   max-width: 816px;
-  color: #ddd;
-  background-color: #1d3f72;
-  margin: 2rem auto 3rem;
-  padding: 2rem 2.5rem;
-  box-shadow: 5px 5px #313131; }
+  color: #000;
+  background-color: #efefef;
+  margin: 1.8rem auto 2.7rem;
+  padding: 2rem 2.5rem; }
   .media--print body {
     margin: 0 auto;
     background-color: #fff;
     color: #000;
-    box-shadow: none;
     padding: 0; }
 
 h1, h2 {
@@ -430,16 +427,10 @@ h1, h2 {
 
 a {
   padding: 0 0.5rem;
-  color: #71c2cc;
+  color: #cc0000;
   text-decoration: none; }
   .media--print a {
     color: #cc0000; }
-  a:hover {
-    background-color: #71c2cc;
-    color: #ddd; }
-
-span.link {
-  padding: 0 0.5rem; }
 
 ul, ol {
   margin: 0; }
@@ -452,18 +443,74 @@ ul, ol {
   color: inherit; }
 
 strong {
-  color: #71c2cc; }
+  color: #cc0000; }
   .media--print strong {
     color: #cc0000; }
 
+.letter__contact {
+  text-align: left;
+  border-bottom: solid 1px #cc0000;
+  padding-bottom: 0.9rem;
+  margin-bottom: 2rem; }
+  .media--print .letter__contact {
+    border-color: #cc0000; }
+
+.letter__content {
+  font-size: 1.2rem; }
+
+.letter__contact__name {
+  color: #cc0000; }
+  .media--print .letter__contact__name {
+    color: #cc0000; }
+
+.media--print .letter__contact__info {
+  font-size: 1.2rem; }
+
+.letter__contact__phone {
+  margin-right: 1rem; }
+
+.letter p {
+  margin: 0.9rem 0; }
+
+.letter__skills {
+  list-style: none;
+  padding-left: 0;
+  text-indent: -1.2em;
+  padding: .5em 1.2em 1.2em; }
+  .letter__skills li {
+    margin-bottom: 0.9rem;
+    margin-left: 1.2em;
+    display: block; }
+    .letter__skills li:before {
+      margin-left: 1.2em;
+      display: inline-block;
+      content: "\2301";
+      letter-spacing: .25em; }
+
+.letter__links {
+  list-style: none;
+  padding-left: 0;
+  text-indent: -1.2em;
+  padding: .5em 1.2em 1.2em; }
+  .letter__links li {
+    margin-bottom: 0.9rem;
+    margin-left: 1.2em;
+    display: block; }
+    .letter__links li:before {
+      margin-left: 1.2em;
+      display: inline-block;
+      content: "\2301";
+      letter-spacing: .25em; }
+
 .contact {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 0.9rem; }
 
 .media--print .contact__info {
-  font-size: 1.25rem; }
+  font-size: 1.2rem; }
 
 .contact__name {
-  color: #71c2cc; }
+  color: #cc0000; }
   .media--print .contact__name {
     color: #cc0000; }
 
@@ -476,31 +523,36 @@ strong {
 .contact__email {
   margin-right: 1rem; }
 
-.media--print .contact__links {
-  color: #cc0000; }
+.contact__links {
+  margin-top: 5px; }
 
 .section *:last-child {
   margin-bottom: 0; }
 
 .section__title {
-  font-size: 1.25rem;
-  margin-top: -10px;
-  margin-bottom: 1rem;
-  color: #5699d2;
-  text-align: right;
-  padding-right: 72px;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.35rem;
+  color: #cc0000;
+  text-align: left;
+  padding-left: 1.25rem;
   border-bottom: solid 1px; }
   .section__title span {
-    background-color: #1d3f72;
-    color: #71c2cc;
+    background-color: #efefef;
+    color: #cc0000;
     padding: 0 .25em;
     transform: translateY(50%);
     display: inline-block; }
     .media--print .section__title span {
       color: #cc0000;
       background-color: #fff; }
+    .section__title span:first-child {
+      padding-left: 0; }
   .media--print .section__title {
     color: #cc0000; }
+
+.section__copy {
+  padding: 0 1.25rem; }
 
 .section__list--job {
   list-style: none;
@@ -508,10 +560,15 @@ strong {
   .section__list--job ul, .section__list--job ol {
     list-style: none;
     padding-left: 0;
-    padding-left: 1.25rem; }
+    text-indent: -1.2em;
+    padding: .5em 1.2em 1.2em; }
     .section__list--job ul li, .section__list--job ol li {
+      margin-bottom: 0.9rem;
+      margin-left: 1.2em;
       display: block; }
       .section__list--job ul li:before, .section__list--job ol li:before {
+        margin-left: 1.2em;
+        display: inline-block;
         content: "\2301";
         letter-spacing: .25em; }
 .section__list--school {
@@ -519,7 +576,7 @@ strong {
   padding-left: 0; }
 
 .section--summary {
-  font-size: 1.25rem; }
+  font-size: 1.2rem; }
 
 .section--affiliations .section__list--text {
   list-style: none;
@@ -531,7 +588,9 @@ strong {
   list-style: none;
   padding-left: 0; }
   .section--clients .section__list--text li {
-    display: block; }
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1.4; }
 
 .section--shops .section__list--text {
   margin: 0 1.25rem;
@@ -539,32 +598,31 @@ strong {
   list-style: none;
   padding-left: 0; }
   .section--shops .section__list--text li {
-    display: block; }
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1.4; }
 
 .section--skills .section__list--text {
-  margin: 0 1.25rem;
   column-count: 4;
   list-style: none;
   padding-left: 0; }
   .section--skills .section__list--text li {
-    display: block; }
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1.4; }
 
-.section--jobs ul {
-  margin-top: 0.5rem; }
-
-@media print {
-  .section--education {
-    page-break-before: always; } }
+.section--jobs {
+  font-size: 1.2rem; }
 
 .job {
-  margin-bottom: 1rem; }
+  margin-bottom: 0.9rem; }
   .job:last-child {
     margin-bottom: 0; }
 
 .job__title {
-  font-size: 1.25rem; }
+  font-size: 1.2rem; }
 
 .school__degree {
-  font-size: 1.25rem; }
+  font-size: 1.2rem; }
 
 /*# sourceMappingURL=resume.css.map */

@@ -26,6 +26,8 @@
   @include no-list;
   li {
     display: block;
+    margin-bottom: $gap__fixed--v--short;
+    line-height: 1.4;
   }
 }
 
@@ -35,9 +37,15 @@
 //
 @mixin list-bullets {
   @include no-list;
+  text-indent: -1.2em;
+  padding: .5em 1.2em 1.2em;
   li {
+    margin-bottom: $gap__fixed--v;
+    margin-left: 1.2em;
     display: block;
     &:before {
+      margin-left: 1.2em;
+      display: inline-block;
       content: "\2301";
       letter-spacing: .25em;
     }

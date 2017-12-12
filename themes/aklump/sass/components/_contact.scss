@@ -1,5 +1,6 @@
 .contact {
   text-align: center;
+  margin-bottom: $gap__fixed--v;
 }
 
 .contact__info {
@@ -28,7 +29,8 @@
 }
 
 .contact__links {
+  margin-top: 5px;
   .media--print & {
-    color: $color--accent--print;
+    //color: $color--accent--print;
   }
 }

@@ -26,31 +26,34 @@ $readDataFrom[] = $baseData;
 // t = which theme to use other than DEFAULT_THEME
 // f = focus data, this is the name of a directory in the same directory as base.  If present these files will override the base data files.
 // o = output path, path to a directory where the output should be rendered relative to the root of the project
+// r = the filename (no extension) of the resume file
 //
-$opts = getopt('wf:t:o:');
+$opts = getopt('wf:t:o:r:');
 $media = array_key_exists('w', $opts) ? 'website' : 'print';
 $theme = $opts['t'] ?? DEFAULT_THEME;
-$outputDir = ROOT . '/' . ($opts['o'] ?? '/dist/default');
+$resumeFilename = ($opts['r'] ?? 'resume') . '.html';
+$outputDir = new FilePath(ROOT . '/' . ($opts['o'] ?? '/dist/default'));
 
 if ($opts['f'] ?? null) {
     $readDataFrom[] = dirname($baseData) . '/' . trim($opts['f'], '/');
 }
 
 try {
+
     $builder = new Builder($readDataFrom, ROOT . "/themes/$theme");
 
-    // Output the index.html
-    $html = $builder->getHtml($media);
-    $obj = new FilePath($outputDir . '/index.html');
-    $obj->put($html)->save();
+    $html = $builder->getHtml('resume', $media);
+    $resume = $outputDir->put($html)->to($resumeFilename)->save();
+
+    $html = $builder->getHtml('letter', $media);
+    $letter = $outputDir->put($html)->to('letter.html')->save();
 
     // Copy the theme's css.
-    $buildDir = $obj = new FilePath($outputDir);
-    $buildDir->to('resume.css')->copy(ROOT . "/themes/$theme/resume.css");
+    $outputDir->to('resume.css')->copy(ROOT . "/themes/$theme/resume.css");
 
     // Copy fonts if they exist.
     $fontsDir = ROOT . "/themes/$theme/fonts/";
-    if (is_dir($fontsDir) && ($to = $buildDir->getPath())) {
+    if (is_dir($fontsDir) && ($to = $outputDir->getPath())) {
         Bash::exec([
             'test -e ',
             $fontsDir,
@@ -60,8 +63,9 @@ try {
         ]);
     }
 } catch (\Exception $exception) {
-    print Color::wrap('red', $exception->getMessage()) . PHP_EOL;
+    print Color::wrap('red', $exception) . PHP_EOL;
     exit(1);
 }
-print Color::wrap('green', "Your resume is available at: " . $buildDir->getPath() . '/index.html') . PHP_EOL;
+print Color::wrap('green', "Your cover letter is available at: " . $letter->getPath()) . PHP_EOL;
+print Color::wrap('green', "Your resume is available at: " . $resume->getPath()) . PHP_EOL;
 exit(0);

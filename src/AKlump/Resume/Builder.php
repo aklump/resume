@@ -35,7 +35,7 @@ class Builder {
      * Builder constructor.
      *
      * @param array An array of FilePath objects where the data for the resume can be found.  A file of the same name
-     *                 in a latter directory will replace it's match in the former, which allows overrides.
+     *                         in a latter directory will replace it's match in the former, which allows overrides.
      * @param string $themeDir The path to the directory containing the theme.
      */
     public function __construct(array $dataPaths, string $themeDir)
@@ -86,8 +86,10 @@ class Builder {
         }
         $apiReady = [
             'contact' => $data['contact'],
+            'position' => $data['position'],
         ];
         unset($data['contact']);
+        unset($data['position']);
 
         uasort($data, function ($a, $b) {
             return ($a['sort'] ?? 0) - ($b['sort'] ?? 0);
@@ -131,7 +133,7 @@ class Builder {
      *
      * @return string
      */
-    public function getHtml($media)
+    public function getHtml($document, $media)
     {
         $loader = new \Twig_Loader_Filesystem("$this->themeDir/templates");
         $twig = new \Twig_Environment($loader);
@@ -150,10 +152,6 @@ class Builder {
         $enlink = new \Twig_Filter('enlink', function ($string) use ($media, $enspan) {
             $domain = preg_replace('/^https?:\/\//', '', $string);
 
-            if ($media === 'print') {
-                return "<span class=\"link\">$domain</span>";
-            }
-
             return '<a href="' . $string . '" target="_blank">' . $domain . '</a>';
         }, ['is_safe' => ['html']]);
         $twig->addFilter($enlink);
@@ -162,18 +160,26 @@ class Builder {
          * Make emails clickable and obfuscated when in web mode.
          */
         $enmail = new \Twig_Filter('enmail', function ($string) use ($media) {
-            if ($media === 'print') {
-                return "<span class=\"link\">$string</span>";
-            }
             $mail = $string;
-            $mail = str_replace('@', ' at ', $mail);
-            $mail = preg_replace('/\.(com|net)$/', ' dot $1', $mail);
+//            $mail = str_replace('@', ' at ', $mail);
+//            $mail = preg_replace('/\.(com|net)$/', ' dot $1', $mail);
 
             return '<a href="mailto:' . $string . '" target="_blank">' . $mail . '</a>';
         }, ['is_safe' => ['html']]);
         $twig->addFilter($enmail);
 
-        return $twig->render('index.twig', $this->getData() + ['media' => $media]);
+        $titles = [
+            'letter' => 'Cover Letter',
+            'resume' => 'Resume',
+        ];
+
+        return $twig->render('index.twig', $this->getData() + [
+                'document' => [
+                    'id' => $document,
+                    'title' => $titles[$document],
+                ],
+                'media' => $media,
+            ]);
     }
 
     private function handleDate($key, &$item)

@@ -1,0 +1,44 @@
+.letter__contact {
+  text-align: left;
+  border-bottom: solid 1px $color--accent2;
+  padding-bottom: $gap__fixed--v;
+  margin-bottom: $gap__fixed--v--tall;
+  .media--print & {
+    border-color: $color--accent2--print;
+  }
+}
+
+.letter__content {
+  font-size: $font--larger;
+}
+
+.letter__contact__name {
+  color: $color--accent;
+  .media--print & {
+    color: $color--accent--print;
+  }
+}
+
+.letter__contact__info {
+  .media--print & {
+    font-size: $font--larger;
+  }
+}
+
+.letter__contact__phone {
+  margin-right: $gap__fixed--h;
+}
+
+.letter {
+  p {
+    margin: $gap__fixed--v 0;
+  }
+}
+
+.letter__skills {
+  @include list-bullets;
+}
+
+.letter__links {
+  @include list-bullets;
+}

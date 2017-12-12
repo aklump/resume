@@ -1,0 +1,54 @@
+<div class="letter">
+  <header class="letter__contact">
+    <h1 class="letter__contact__name">{{ contact.name }}</h1>
+    <div class="letter__contact__info">
+      <span class="letter__contact__address">{{ contact.street_address ~ ', ' ~ contact.city ~ ', ' ~ contact.state
+        ~ ' ' ~ contact.zip }}</span>
+      <div>
+        <span class="letter__contact__phone">{{ contact.phone }}</span>
+        <span class="letter__contact__email">{{ contact.email|enmail }}</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="letter__content section">
+    
+    <p>Dear {{ position.dear }},</p>
+    
+    <p>I am writing in response to the advertisement posted for <strong>{{ position.position }}</strong>
+      with {{ position.company }}. As an experienced web developer with expert knowledge in {{ position.expert }}, I
+      am confident that I am the right person to help {{ position.company }} {{ position.goal }}.</p>
+    
+    <p>I offer a wide variety of development experience from front to back end, a strong and proven aptitude for
+      learning new technologies,
+      and a track record of meeting aggressive goals and keeping my clients happy. My most notable skills
+      include:</p>
+    {% if position.skills %}
+      <ul class="letter__skills">
+        {% for item in position.skills %}
+          {% set item = {item: item} %}
+          {{ include("list_item_text.twig", item, with_context = false) }}
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if position.links %}
+      <p>Here are highlights of my work, which demonstrate my ability to provide {{ position.provide }}:</p>
+      
+      <ul class="letter__links">
+        {% for item in position.links %}
+          {% set item = {item: item} %}
+          {{ include("list_item_link.twig", item, with_context = false) }}
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+    <p>My experience and expert skills as a Drupal developer and my passion for detail make me the ideal
+      candidate to join your project. I'd be glad to discuss my abilities and background with you in more
+      detail. Thank you for considering me for this position.</p>
+    
+    
+    <p>Sincerely,</p>
+    
+    <p>{{ contact.name }}</p>
+  </main>
+</div>

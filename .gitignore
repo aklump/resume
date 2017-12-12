@@ -1,3 +1,4 @@
+/todos.md
 /config
 /dist
 /data
@@ -7,6 +8,7 @@
 /themes/aklump/fonts/libre-baskerville/*
 !/themes/aklump/fonts/libre-baskerville/LibreBaskerville-Regular.otf
 
+/docs/letter.html
 /docs/fonts/ibm-plex/*
 !/docs/fonts/ibm-plex/IBMPlexSerif-Regular.otf
 /docs/fonts/libre-baskerville/*

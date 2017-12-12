@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js media--{{ media }}" lang="">
+<html class="document--{{ document.id }} media--{{ media }}" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Resume for {{ contact.name }}</title>
+        <title>{{ document.title }} for {{ contact.name }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,6 +14,6 @@
         <link rel="stylesheet" href="resume.css">
     </head>
     <body>
-        {% include('resume.twig') %}
+        {% include(document.id ~ '.twig') %}
     </body>
 </html>
