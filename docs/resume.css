@@ -412,7 +412,7 @@ body {
   width: 90%;
   max-width: 816px;
   color: #000;
-  background-color: #efefef;
+  background-color: #fefefe;
   margin: 1.8rem auto 2.7rem;
   padding: 2rem 2.5rem; }
   .media--print body {
@@ -538,7 +538,7 @@ strong {
   padding-left: 1.25rem;
   border-bottom: solid 1px; }
   .section__title span {
-    background-color: #efefef;
+    background-color: #fefefe;
     color: #cc0000;
     padding: 0 .25em;
     transform: translateY(50%);
