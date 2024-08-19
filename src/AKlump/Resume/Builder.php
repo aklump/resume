@@ -153,9 +153,16 @@ class Builder {
          * Wrap a string with a link when in website mode.
          */
         $enlink = new \Twig_Filter('enlink', function ($string) use ($media, $enspan) {
-            $domain = preg_replace('/^https?:\/\//', '', $string);
+            if ('website' === $media) {
+                $data = parse_url($string);
+                $label = $data['host'] ?? $string;
+            }
+            else {
+                $label = preg_replace('#https?:\/\/(www\.)?#', '', $string);
+                $label = rtrim($label, '/');
+            }
 
-            return '<a href="' . $string . '" target="_blank">' . $domain . '</a>';
+            return '<a href="' . $string . '" target="_blank">' . $label . '</a>';
         }, ['is_safe' => ['html']]);
         $twig->addFilter($enlink);
 
