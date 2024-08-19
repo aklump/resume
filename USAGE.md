@@ -8,7 +8,7 @@
 ## Installation
 
 1. Download the [resume builder](https://github.com/aklump/resume)
-1. Run `composer update` from the root.
+1. Run `composer install` from the root.
 1. Copy the contents of _install/data/base_ to _data/base_ and use as a starting point, e.g. `rsync -av install/data/ data/`
 
 ## How to Build Your Resume
