@@ -76,8 +76,11 @@ class Builder {
         $data = [];
         array_walk($files, function ($file) use (&$data) {
             $name = $file->getFilename();
-            $data[$name] = Yaml::parse(file_get_contents($file->getPath()));
-            $data[$name]['id'] = $name;
+            $contents = file_get_contents($file->getPath());
+            if (!empty($contents)) {
+                $data[$name] = Yaml::parse($contents);
+                $data[$name]['id'] = $name;
+            }
         });
 
         // Convert to a more consumable data structure.
