@@ -15,9 +15,9 @@ define('DEFAULT_THEME', 'aklump');
 
 require_once ROOT . '/vendor/autoload.php';
 
-$readDataFrom = [];
+$read_data_from = [];
 $baseData = ROOT . "/data/base";
-$readDataFrom[] = $baseData;
+$read_data_from[] = $baseData;
 
 //
 // Convert CLI options:
@@ -31,29 +31,35 @@ $readDataFrom[] = $baseData;
 $opts = getopt('wf:t:o:r:');
 $media = array_key_exists('w', $opts) ? 'website' : 'print';
 $theme = $opts['t'] ?? DEFAULT_THEME;
-$resumeFilename = ($opts['r'] ?? 'resume') . '.html';
-$outputDir = new FilePath(ROOT . '/' . ($opts['o'] ?? '/dist/default'));
+
+$resume_filename = 'resume.html';
+if ($media === 'website') {
+    $resume_filename = 'index.html';
+}
+if (!empty($opts['r'])) {
+    $resume_filename = $opts['r'] . '.html';
+}
+
+$output_dir = new FilePath(ROOT . '/' . ($opts['o'] ?? '/dist/default'));
 
 if ($opts['f'] ?? null) {
-    $readDataFrom[] = dirname($baseData) . '/' . trim($opts['f'], '/');
+    $read_data_from[] = dirname($baseData) . '/' . trim($opts['f'], '/');
 }
 
 try {
-
-    $builder = new Builder($readDataFrom, ROOT . "/themes/$theme");
-
+    $builder = new Builder($read_data_from, ROOT . "/themes/$theme");
     $html = $builder->getHtml('resume', $media);
-    $resume = $outputDir->put($html)->to($resumeFilename)->save();
+    $resume = $output_dir->put($html)->to($resume_filename)->save();
 
     $html = $builder->getHtml('letter', $media);
-    $letter = $outputDir->put($html)->to('letter.html')->save();
+    $letter = $output_dir->put($html)->to('letter.html')->save();
 
     // Copy the theme's css.
-    $outputDir->to('resume.css')->copy(ROOT . "/themes/$theme/resume.css");
+    $output_dir->to('resume.css')->copy(ROOT . "/themes/$theme/resume.css");
 
     // Copy fonts if they exist.
     $fontsDir = ROOT . "/themes/$theme/fonts/";
-    if (is_dir($fontsDir) && ($to = $outputDir->getPath())) {
+    if (is_dir($fontsDir) && ($to = $output_dir->getPath())) {
         Bash::exec([
             'test -e ',
             $fontsDir,
