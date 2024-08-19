@@ -4,7 +4,7 @@
     <span class="contact__address">{{ contact.street_address }}, {{ contact.city }}
       , {{ contact.state }} {{ contact.zip }}</span>
     <span class="contact__phone">{{ contact.phone }}</span>
-    <span class="contact__email">{{ contact.email|enmail }}</span>
+    <span class="contact__email">{{ contact.email|private }}</span>
   </div>
   <div class="contact__links">
     {% for link in contact.links %}

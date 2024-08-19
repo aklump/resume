@@ -157,16 +157,16 @@ class Builder {
         $twig->addFilter($enlink);
 
         /**
-         * Make emails clickable and obfuscated when in web mode.
+         * Remove private values when in website mode.
          */
-        $enmail = new \Twig_Filter('enmail', function ($string) use ($media) {
-            $mail = $string;
-//            $mail = str_replace('@', ' at ', $mail);
-//            $mail = preg_replace('/\.(com|net)$/', ' dot $1', $mail);
+        $private = new \Twig_Filter('private', function ($string) use ($media) {
+            if ('website' !== $media) {
+                return $string;
+            }
 
-            return '<a href="mailto:' . $string . '" target="_blank">' . $mail . '</a>';
+            return '';
         }, ['is_safe' => ['html']]);
-        $twig->addFilter($enmail);
+        $twig->addFilter($private);
 
         $titles = [
             'letter' => 'Cover Letter',

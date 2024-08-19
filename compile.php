@@ -22,7 +22,7 @@ $readDataFrom[] = $baseData;
 //
 // Convert CLI options:
 //
-// w = website mode; the content will be displayed online, publicly
+// w = website mode; the content will be displayed online, publicly; emails are removed.
 // t = which theme to use other than DEFAULT_THEME
 // f = focus data, this is the name of a directory in the same directory as base.  If present these files will override the base data files.
 // o = output path, path to a directory where the output should be rendered relative to the root of the project
